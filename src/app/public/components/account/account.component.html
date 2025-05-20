@@ -1,0 +1,41 @@
+<div class="accounts-container">
+  <h2>Liste des comptes bancaires</h2>
+
+  <table class="accounts-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Numéro de compte</th>
+        <th>Solde</th>
+        <th>Type de compte</th>
+        <th>Dernière transaction</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(account of accounts ; track account.id) {
+      <tr>
+        <td>{{ account.id }}</td>
+        <td>{{ account.lastName }}</td>
+        <td>{{ account.firstName }}</td>
+        <td>{{ account.email }}</td>
+        <td>{{ account.accountNumber }}</td>
+        <td>{{ account.solde}}</td>
+        <td>{{ account.accountType }}</td>
+        <td>{{ account.lastTransactionDate}}</td>
+        <td>
+          <button class="btn btn-bordered" (click)="goToDetail(account.id)">Voir les détails</button>
+        </td>
+      </tr>
+      } @empty {
+      <p>Données non disponible, veuillez réessayer plus tard</p>
+      }
+
+    </tbody>
+  </table>
+
+
+</div>

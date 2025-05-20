@@ -1,0 +1,22 @@
+<h1>Pokedex</h1>
+<!--SOLUTION 1-->
+<section class="m-2 border mb-5">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 p-5">
+    @for(pokemon of pokemonsResponse?.results; track pokemon.url){
+    <app-pokemon-card [resumePokemon]="pokemon" />
+    }
+  </div>
+</section>
+
+
+<!--Pagination des deux solutions-->
+<section class="w-fit m-auto">
+  <button (click)="previousPage()"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">précédent</button>
+  {{pagniationInfo.currentPage}}
+
+  <button (click)="nextPage()"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Suivant</button>
+  {{pagniationInfo.lastPage}}
+
+</section>

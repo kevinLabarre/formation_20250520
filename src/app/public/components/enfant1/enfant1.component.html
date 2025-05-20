@@ -1,0 +1,7 @@
+<section>
+  <input [(ngModel)]="name" (ngModelChange)="handleChange()">
+  <!-- le (ngModelChange)="handleChange()" n'est pas obligatoire : -->
+  <input [(ngModel)]="name">
+  <button class="btn" (click)="save()">Enregistrer</button>
+  {{name}}
+</section>

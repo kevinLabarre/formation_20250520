@@ -1,0 +1,13 @@
+<section>
+  <h1>Mon solde</h1>
+  @if(account){
+  <p>{{account.solde}}</p>
+  }
+
+  <!-- Faire passer le compte en param
+  <app-form-depot>
+  -->
+
+  <app-solde-form [account]="account" operation="deposit" />
+
+</section>

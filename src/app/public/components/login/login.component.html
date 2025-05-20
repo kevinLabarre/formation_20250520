@@ -1,0 +1,24 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="email" placeholder="Email" class="input input-bordered">
+
+  <!--@if(formControl['email'].invalid && formControl['email'].touched){
+  <p>Le champ email est obligatoire et doit contenir une adresse email valide</p>
+  }
+-->
+
+  @if(formControl['email'].errors?.['required'] && formControl['email'].touched){
+  <p>{{errorMessages.email[0].message}}</p>
+
+
+  }@if(formControl['email'].errors?.['email'] && formControl['email'].touched){
+  <p>{{errorMessages.email[1].message}}</p> }
+
+  <input type="password" formControlName="password" placeholder="Mot de passe" class="input input-bordered">
+  @if(formControl['password'].errors?.['required'] && formControl['password'].touched){
+  <p>{{errorMessages.password[0].message}}</p>
+
+  }@if(formControl['password'].errors?.['minLength'] && formControl['password'].touched){
+  <p>{{errorMessages.password[1].message}}</p> }
+
+  <button class="btn" [disabled]="loginForm.invalid">Se connecter</button>
+</form>
