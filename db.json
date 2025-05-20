@@ -18,7 +18,7 @@
       "email": "jean.dupont@example.com",
       "role": "USER",
       "accountNumber": "FR7630001007941234567890185",
-      "solde": 1900.7399999999998,
+      "solde": 1900.74,
       "lastTransactionDate": "2023-04-15T14:32:15.000Z",
       "accountType": "COURANT"
     },
@@ -109,11 +109,6 @@
       "solde": 7840.25,
       "lastTransactionDate": "2023-04-25T14:15:32.000Z",
       "accountType": "EPARGNE"
-    },
-    {
-      "id": "754c",
-      "email": "klabarre@dawan.fr",
-      "password": ""
     }
   ]
 }
