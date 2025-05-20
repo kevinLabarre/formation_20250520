@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-
 interface MenuItem {
   label: string;
   link?: string;
   children?: MenuItem[];
 }
-
 
 @Component({
   selector: 'app-navbar',
@@ -23,5 +21,6 @@ export class NavbarComponent {
     { label: 'Comptes bancaires', link: '/account' },
     { label: 'on-changes', link: '/on-changes' },
     { label: 'pokemons', link: '/pokemons' },
+    { label: 'signal', link: '/signal' }
   ]
 }

@@ -25,7 +25,8 @@
           <td class="py-2 px-4 border-b text-sm">{{ account.lastName }}</td>
           <td class="py-2 px-4 border-b text-sm">{{ account.firstName }}</td>
           <td class="py-2 px-4 border-b text-sm">{{ account.email }}</td>
-          <td class="py-2 px-4 border-b text-sm font-mono whitespace-nowrap">{{ account.accountNumber }}</td>
+          <td class="py-2 px-4 border-b text-sm font-mono whitespace-nowrap" [innerHTML]="account.accountNumber |
+            boldFirstFour"></td>
           <!--<td class="py-2 px-4 border-b text-sm font-semibold whitespace-nowrap">{{ account.solde |
             currency:'USD':'code':'1.0-0':'ja-JP'}}</td>-->
 

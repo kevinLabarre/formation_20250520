@@ -8,12 +8,14 @@ import { RetirerComponent } from "../components/retirer/retirer.component";
 import { Enfant1Component } from "../components/enfant1/enfant1.component";
 import { Enfant2Component } from "../components/enfant2/enfant2.component";
 import { LoginComponent } from "../components/login/login.component";
+import { SignalComponent } from "../components/signal/signal.component";
 
 export const PUBLIC_ROUTES: Routes = [
   { path: "", redirectTo: "account", pathMatch: "full" },
   { path: "account", component: AccountComponent, title: "Comptes" },
   { path: "on-changes", component: OnCHangesDemoComponent, title: "demo onChanges" },
   { path: "pokemons", component: PokemonsComponent, title: "pokemons" },
+  { path: "signal", component: SignalComponent, title: "signal" },
   {
     path: "detail-compte/:id", component: AccountResumeComponent, title: "détail du compte", children: [
       { path: "", redirectTo: "depot", pathMatch: "full" },

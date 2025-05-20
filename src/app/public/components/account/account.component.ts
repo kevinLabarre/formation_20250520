@@ -4,10 +4,11 @@ import { BankAccount } from '../../../models/bank-account.model';
 import { Router } from '@angular/router';
 import { CurrencyPipe, DatePipe, JsonPipe, LowerCasePipe } from '@angular/common';
 import { AuthorPipe } from '../../pipes/author/author.pipe';
+import { BoldFirstFourPipe } from '../../pipes/boldFirstFour/bold-first-four.pipe';
 
 @Component({
   selector: 'app-account',
-  imports: [DatePipe, AuthorPipe, CurrencyPipe, JsonPipe, LowerCasePipe],
+  imports: [DatePipe, AuthorPipe, CurrencyPipe, JsonPipe, LowerCasePipe, BoldFirstFourPipe],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css'
 })
