@@ -1,15 +1,17 @@
 import { Routes } from '@angular/router';
 import { PublicLayoutComponent } from './public/layout/public-layout/public-layout.component';
+import { PUBLIC_ROUTES } from './public/routes/public.routes';
 
 export const routes: Routes = [
   {
     path: '',
+
+    // SANS LAZYLOADING
     component: PublicLayoutComponent,
 
-    // Charge les routes enfants
+    // Charge les routes enfants SANS LASYLOADING
     // ==> Toutes les routes 'enfants' sont les routes de l'espace public
-    loadChildren: () => import('./public/routes/public.routes').then(r => r.PUBLIC_ROUTES),
-
+    children: PUBLIC_ROUTES
   },
 
   // REMPLACER PAR LE MODULE ADMIN
@@ -19,10 +21,10 @@ export const routes: Routes = [
     // Avec 'component' , import classique (donc pas de lazyLoading)
     // component: PublicLayoutComponent,
 
-    // Pour faire le lazy loading, nous devons utiliser 'loadComponent' à la place de 'component'
+    // Pour faire le lazy loading, nous devons utiliser 'loadComponent' à la place de 'component'  AVEC LAZYLOADING
     loadComponent: () => import('./admin/layout/admin-layout/admin-layout.component').then(c => c.AdminLayoutComponent),
 
-    // Charge les routes enfants
+    // Charge les routes enfants AVEC LAZYLOADING
     // ==> Toutes les routes 'enfants' sont les routes de l'espace public
     loadChildren: () => import('./admin/routes/admin.route').then(r => r.ADMIN_ROUTES)
   }
