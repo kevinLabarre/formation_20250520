@@ -16,6 +16,9 @@ interface MenuItem {
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+
+  // label : nom qui s'affiche sur la navBar
+  // link : route vers laquelle on est redirigé
   menuItems: MenuItem[] = [
     { label: 'Comptes bancaires', link: '/account' },
     { label: 'on-changes', link: '/on-changes' },
