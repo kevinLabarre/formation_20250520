@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../services/authentification/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,18 +15,18 @@ export class LoginComponent {
   loginForm!: FormGroup
 
   errorMessages = {
-    email: [
+    UserName: [
       { type: 'required', message: 'Le champ email est obligatoire' },
-      { type: 'email', message: 'Email non valide' }
+      // { type: 'UserName', message: 'Email non valide' }
     ],
-    password: [
+    Password: [
       { type: 'required', message: 'Le champ mot de passe est obligatoire' },
       { type: 'minLength', message: 'Mot de passe doit faire plus de 8 caractères' }
     ]
   }
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.initForm()
 
     // méthode pour pré-remplir
@@ -36,28 +39,39 @@ export class LoginComponent {
 
   initForm(): void {
     this.loginForm = this.fb.group({
-      email: new FormControl('', {
+      UserName: new FormControl('', {
         validators: [
           Validators.required,
-          Validators.email
+          // Validators.email
         ]
       }),
-      password: new FormControl('', {
+      Password: new FormControl('', {
         validators: [
           Validators.required,
-          Validators.minLength(8) // Mon mdp devra faire + de 8 caractères
+          //Validators.minLength(8) // Mon mdp devra faire + de 8 caractères
         ]
       })
     })
   }
 
   onSubmit(): void {
-    console.log("Submit")
+
     // Tous les champs sont OK, en fonction des validators
     if (this.loginForm.valid) {
+
       // Pour récupérer une valeur d'un chmap spécifique
-      console.log(this.loginForm.value.email)
+      console.log(this.loginForm.value.UserName)
       console.log(this.loginForm.value)
+
+      this.authService.login(this.loginForm.value).subscribe({
+        next: res => {
+          console.log("res ->", res)
+          localStorage.setItem("accountApp-token", res.token.access_token)
+          this.router.navigate(["/admin"])
+        },
+
+      })
+
     }
   }
 

@@ -7,4 +7,12 @@
   <button class="btn" (click)="increment()">+</button>
   <button class="btn" (click)="setCount10()">Mettre à 10</button>
 
+  <input type="text" class="input input-bordered" [(ngModel)]="username" (ngModelChange)="updateUserSignal()">
+
+  <p>
+    {{userSignal().username}}
+  </p>
+
+  <h2>Computed()</h2>
+  <app-computed />
 </section>

@@ -1,1 +1,21 @@
-<p>home-page works!</p>
+<section>
+  <h1>Mon profil</h1>
+
+  @if(profile){
+
+  @for(user of profile.content ; track user.matricule ){
+  <div>
+    <p>{{ user.nom }}</p>
+    <p>{{ user.prenom }}</p>
+    <p>{{ user.postnom }}</p>
+    <p>{{ user.dateNaissanceBrute | date }}</p>
+    <p>{{ user.direction }}</p>
+    <p>{{ user.matricule }}</p>
+  </div>
+  }
+
+
+  }
+
+
+</section>

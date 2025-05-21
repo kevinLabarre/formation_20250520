@@ -31,10 +31,10 @@
             currency:'USD':'code':'1.0-0':'ja-JP'}}</td>-->
 
           <td class="py-2 px-4 border-b text-sm font-semibold whitespace-nowrap">{{ account.solde |
-            currency:'USD'}}</td>
+            currency:'EUR'}}</td>
 
           <td class="py-2 px-4 border-b text-sm">{{ account.accountType | author | lowercase }}</td>
-          <td class="py-2 px-4 border-b text-sm whitespace-nowrap">{{ account.lastTransactionDate | date:'dd/MM/yyyy' }}
+          <td class="py-2 px-4 border-b text-sm whitespace-nowrap">{{ account.lastTransactionDate | date }}
           </td>
           <td class="py-2 px-4 border-b text-sm">
             <button
@@ -56,6 +56,15 @@
 </div>
 
 
-<div>
-  {{ accounts | json }}
-</div>
+<!-- pipe json utilisé pour le débogage/test
+    pipe async nous permet de ne plus avoir à utiliser "subscribe" pour s'abonner
+-->
+<section>
+  <h2>Affiché avec le pipe async</h2>
+
+  @if(accountsForPipeAsync$ | async; as accountsAsync){
+  @for(account of accountsAsync; track account.id ) {
+  <p>{{ account | json }}</p> }
+  }
+
+</section>

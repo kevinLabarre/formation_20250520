@@ -35,5 +35,4 @@ export const PUBLIC_ROUTES: Routes = [
     ]
   },
   { path: "login", component: LoginComponent, title: "login" },
-  { path: "**", redirectTo: "account" },
 ]

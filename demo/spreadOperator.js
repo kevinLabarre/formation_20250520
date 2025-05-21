@@ -15,3 +15,8 @@ function add(...arg) {
 }
 
 console.log(add(1, 2, 3, 4, 5, 6, 4, 9, 8));
+
+user = { name: "toto", age: 10 };
+
+user2 = { ...user, name: "titi" };
+console.log(user2);

@@ -11,7 +11,7 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   getAccounts(): Observable<BankAccount[]> {
-    return this.http.get<BankAccount[]>('http://localhost:3000/bankAccounts');
+    return this.http.get<BankAccount[]>('http://localhost:3000/bankAccounts/feufoeifuofhe/fjieojfe');
   }
 
   getAccounById(id: number): Observable<BankAccount> {

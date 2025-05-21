@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { PublicLayoutComponent } from './public/layout/public-layout/public-layout.component';
 import { PUBLIC_ROUTES } from './public/routes/public.routes';
+import { adminGuard } from './admin/guards/admin.guard';
 
 export const routes: Routes = [
   {
@@ -11,7 +12,11 @@ export const routes: Routes = [
 
     // Charge les routes enfants SANS LASYLOADING
     // ==> Toutes les routes 'enfants' sont les routes de l'espace public
-    children: PUBLIC_ROUTES
+    children: PUBLIC_ROUTES,
+    canActivate: [adminGuard],
+
+    // Si je veux "guarder" les routes enfants
+    // canActivateChild: [adminGuard]
   },
 
   // REMPLACER PAR LE MODULE ADMIN
